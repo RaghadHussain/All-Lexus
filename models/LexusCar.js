@@ -39,7 +39,8 @@ const lexusCarSchema = new mongoose.Schema({
         required: true
     },
     carImage: {
-        type: String
+        type: String,
+        required: true
     },
     status: {
         type: String,

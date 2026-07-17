@@ -10,12 +10,12 @@
 <body>
     <header>
         <%- include('../partials/navbar') %>
-        <h1>Edit Lexus<> Information</h1>
+        <h1>Edit Lexus<%= car.model %> Information</h1>
     </header>
     <main>
         <section>
 
-            <form action="/lexusCar/edit" method="post" enctype="multipart/form-data">
+            <form action="/lexusCar/<%= car._id %>?_method=PUT/edit" method="post" enctype="multipart/form-data">
                 <label for="model">Car Model: </label>
                 <input id="model" name="model" type="text">
 
