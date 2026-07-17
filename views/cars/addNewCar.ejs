@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Lexus Car</title>
+</head>
+
+<body>
+    <header>
+        <%- include('../partials/navbar') %>
+    </header>
+    <main>
+        <section>
+
+            <form action="/new" method="post">
+                <label for="model">Car Model: </label>
+                <input id="model" name="model" type="text">
+
+                <label for="condition">Car Condition: </label>
+                <select name="condition" id="condition">
+                    <option value="cond1">New</option>
+                    <option value="cond2">Used</option>
+                </select>
+
+                <label for="type">Car Type: </label>
+                <input id="type" name="type" type="text">
+
+
+                <label for="mileage">Mileage: </label>
+                <input id="mileage" name="mileage" type="number">
+
+
+                <label for="fuelType">Fuel Type: </label>
+                <input id="fuelType" name="fuelType" type="text">
+
+
+                <label for="transmission">Transmission: </label>
+                <input id="transmission" name="transmission" type="text">
+
+
+                <label for="engine">Car Engine: </label>
+                <input id="engine" name="engine" type="text">
+
+
+                <label for="horsepower">horse Power: </label>
+                <input id="horsepower" name="horsepower" type="number">
+
+                <label for="status">Car Status: </label>
+                <input id="status" name="status" type="text">
+                
+                <label for="carImage">Insert Car Image: </label>
+                <input id="carImage" name="carImage" type="file" accept="image/*">
+
+                <button type="submit">Add Car</button>
+            </form>
+        </section>
+    </main>
+</body>
+
+</html>

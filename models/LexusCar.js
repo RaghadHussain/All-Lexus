@@ -29,7 +29,7 @@ const lexusCarSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    hoursepower: {
+    horsepower: {
         type: Number,
         required: true
     },
