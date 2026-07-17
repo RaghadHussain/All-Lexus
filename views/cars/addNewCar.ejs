@@ -10,18 +10,19 @@
 <body>
     <header>
         <%- include('../partials/navbar') %>
+        <h1>Add New Lexus Car</h1>
     </header>
     <main>
         <section>
 
-            <form action="/new" method="post">
+            <form action="/lexusCar/new" method="post" enctype="multipart/form-data">
                 <label for="model">Car Model: </label>
                 <input id="model" name="model" type="text">
 
                 <label for="condition">Car Condition: </label>
                 <select name="condition" id="condition">
-                    <option value="cond1">New</option>
-                    <option value="cond2">Used</option>
+                    <option value="New">New</option>
+                    <option value="Used">Used</option>
                 </select>
 
                 <label for="type">Car Type: </label>
@@ -46,9 +47,6 @@
 
                 <label for="horsepower">horse Power: </label>
                 <input id="horsepower" name="horsepower" type="number">
-
-                <label for="status">Car Status: </label>
-                <input id="status" name="status" type="text">
                 
                 <label for="carImage">Insert Car Image: </label>
                 <input id="carImage" name="carImage" type="file" accept="image/*">

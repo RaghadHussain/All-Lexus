@@ -2,7 +2,8 @@ const mongoose = require('mongoose')
 
 const lexusCarSchema = new mongoose.Schema({
     dealer: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Dealer'
     },
     model: {
         type: String,
@@ -25,6 +26,10 @@ const lexusCarSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    transmission: {
+        type: String,
+        required: true
+    },
     engine: {
         type: String,
         required: true
@@ -39,9 +44,10 @@ const lexusCarSchema = new mongoose.Schema({
     status: {
         type: String,
         required: true,
+        default: 'Available',
         enum: ['Available', 'Sold']
     }
-},{timestamps:true})
+}, { timestamps: true })
 
 const LexusCar = mongoose.model('LexusCar', lexusCarSchema)
 module.exports = LexusCar

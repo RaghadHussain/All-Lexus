@@ -55,9 +55,11 @@ app.use(passUserToView)
 
 
 // Routes go here
+app.use('/uploads', express.static('uploads'))
 app.use('/auth',authController)
 app.use('/',indexController)
 app.use('/lexusCar', carController)
+
 
 
 
