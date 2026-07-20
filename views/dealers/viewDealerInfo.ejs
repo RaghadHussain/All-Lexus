@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Details</title>
+</head>
+<body>
+    <header>
+    <%- include('../partials/navbar') %>
+    <h1><%= dealer.dealerName %> Account Details</h1>
+    </header>
+    <main>
+        <section id="info-section">
+        <p>Phone Number: <%= dealer.phoneNumber %></p>
+        <p>Email: <%= dealer.email %></p>
+        <p>Dealership City: <%= dealer.city %></p>
+        <p>Dealership Address: <%= dealer.address %></p>  
+        </section>
+
+        <section id="buttons">
+            <form action="/dealer/<%= car._id %>/edit" method="get">
+                <button>Edit Car Information</button>
+            </form>
+            <form action="/dealer/<%= car._id %>?_method=delete" method="post">
+                <button>Delete Car</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

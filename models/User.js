@@ -11,6 +11,12 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  fullName:{
+    type: String,
+  },
+  phoneNumber:{
+    type: Number,
+  },
   dealerId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Dealer'

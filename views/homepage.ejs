@@ -6,8 +6,22 @@
     <title>Home</title>
 </head>
 <body>
-    <%- include('./partials/navbar') %>
+    <head>
+        <%- include('./partials/navbar') %>
+    <h1 id="welcomeTitle">Welcome to All Lexus</h1>
+    <p id="subTitle">Find your perfect Lexus, new or used, all in one place!</p>
+    </head>
+    <main>
+        <section class="cars">
+            <% for(let oneCar of car){ %>
+               <img src="/uploads/<%= oneCar.carImage %>" alt="<%= oneCar.model %>">
+               <p>Car Model: Lexus<%= oneCar.model %></p>
+               <p>Car Dealer: <%= oneCar.dealer?.dealerName || 'Unknown dealer' %> </p>
+               <a href="/lexusCar/<%= oneCar._id %>">View Lexus Details</a>
+           <% } %>
+        </section>
+    </main>
 
-    <h1>Welcome to my Website</h1>
+
 </body>
 </html>

@@ -24,7 +24,7 @@ router.post('/new', isSignedIn, upload.single('carImage'), async (request, respo
             horsepower: request.body.horsepower,
             carImage: request.file.filename
         })
-        response.redirect('')
+        response.redirect('/')
     } catch (e) {
         console.log('ERROR:' + e)
     }
@@ -35,7 +35,7 @@ router.post('/new', isSignedIn, upload.single('carImage'), async (request, respo
 //View car details
 router.get('/:id', isSignedIn, async (request, response) => {
     try {
-        const foundedCar = await car.findById(request.params.id)
+        const foundedCar = await car.findById(request.params.id).populate('dealer')
         response.render('cars/viewCarDetails.ejs', { car: foundedCar })
     } catch (e) {
         console.log('ERROR:' + e)

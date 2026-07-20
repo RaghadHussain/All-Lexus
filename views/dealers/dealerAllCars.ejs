@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Lexues Cars</title>
+</head>
+
+<body>
+    <header>
+        <%- include('../partials/navbar') %>
+            <h1>All <%= car.dealer.dealerName %> Cars</h1>
+    </header>
+    <main>
+        <% let counter=1 %>
+            <% for(let oneCar of car){ %>
+                <p>Car <%= counter %>: Lexus <%= oneCar.model %>
+                </p>
+                <a href="/lexusCar/<%= oneCar._id %>">View Lexues Details</a>
+                <% counter++ %>
+                    <% } %>
+    </main>
+</body>
+
+</html>

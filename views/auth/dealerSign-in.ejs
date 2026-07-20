@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign Up</title>
+    <title>Dealer Sign-up</title>
   </head>
   <body>
     <%- include('../partials/navbar') %>
-    <h1>Create a new account!</h1>
-    <form action="/auth/sign-up" method="post">
+    <h1>Create a new dealer account!</h1>
+    <form action="/auth/dealer/sign-up" method="post">
       <label for="username">Username:</label>
       <input type="text" name="username" id="username" />
 
@@ -19,13 +19,23 @@
       <input type="password" name="confirmPassword" id="confirmPassword" />
 
       
-      <label for="fullName">Name: </label>
-      <input type="text" name="fullName" id="fullName">
+      <label for="dealerName">Dealership Name: </label>
+      <input id="dealerName" name="dealerName" type="text">
 
       <label for="phoneNumber">Phone Number: </label>
-      <input type="number" name="phoneNumber" id="phoneNumber">
+      <input id="phoneNumber" name="phoneNumber" type="number">
+
+      <label for="email">Email: </label>
+      <input id="email" name="email" type="text">
+      
+      <label for="city">Dealership City: </label>
+      <input id="city" name="city" type="text">
+
+      <label for="address">Dealership Address: </label>
+      <input id="address" name="address" type="text">
       
       <button type="submit">Sign up</button>
     </form>
   </body>
 </html>
+

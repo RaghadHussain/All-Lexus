@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Your Account Information</title>
+</head>
+
+<body>
+    <header>
+        <%- include('../partials/navbar') %>
+        <h1>Update Your Account Information</h1>
+    </header>
+    <main>
+        <section>
+            <form action="/dealer/<%= dealer._id %>?_method=PUT/edit" method="post">
+                <label for="dealerName">Dealership Name: </label>
+                <input value="<%= dealer.dealerName %>" id="dealerName" name="dealerName" type="text">
+
+                <label for="phoneNumber">Phone Number: </label>
+                <input value="<%= dealer.phoneNumber %>" id="phoneNumber" name="phoneNumber" type="number">
+
+                <label for="email">Email: </label>
+                <input value="<%= dealer.email %>" id="email" name="email" type="text">
+
+
+                <label for="city">Dealership City: </label>
+                <input value="<%= dealer.city %>" id="city" name="city" type="text">
+
+                <label for="address">Dealership Address: </label>
+                <input value="<%= dealer.address %>" id="address" name="address" type="text">
+
+                <button type="submit">Update</button>
+            </form>
+        </section>
+    </main>
+</body>
+
+</html>

@@ -16,6 +16,7 @@ const passUserToView = require("./middleware/pass-user-to-view.js");
 const authController = require("./controllers/auth.controllers.js");
 const indexController = require("./controllers/index.controllers.js");
 const carController = require('./controllers/car.controller.js')
+const dealerController = require('./controllers/dealer.controllers.js')
 
 
 // Middleware
@@ -59,6 +60,7 @@ app.use('/uploads', express.static('uploads'))
 app.use('/auth',authController)
 app.use('/',indexController)
 app.use('/lexusCar', carController)
+app.use('/dealer', dealerController)
 
 
 

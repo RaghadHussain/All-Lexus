@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lexues Details</title>
+</head>
+
+<body>
+    <header>
+        <%- include('../partials/navbar') %>
+        <h1>Lexues <%= car.model %>
+        </h1>
+        <h2>
+            <%= car.dealer?.dealerName || 'Unknown dealer' %> Dealership
+        </h2>
+    </header>
+    <main>
+        <section id="carDetails">
+            <img src="/uploads/<%= car.carImage %>" alt="<%= car.model %>">
+            <p>Car Condition: <%= car.condition %>
+            </p>
+            <p>Car Type: <%= car.type %>
+            </p>
+            <p>Car Fuel Type: <%= car.fuelType %>
+            </p>
+            <p>Car Transmission: <%= car.transmission %>
+            </p>
+            <p>Car Engine: <%= car.engine %>
+            </p>
+            <p>Car Horsepower: <%= car.horsepower %>
+            </p>
+            <p>Car Status: <%= car.status %>
+            </p>
+        </section>
+        <section id="buttons">
+            <form action="/lexusCar/<%= car._id %>/edit" method="get">
+                <button>Edit Car Information</button>
+            </form>
+            <form action="/lexusCar/<%= car._id %>?_method=DELETE" method="post">
+                <button>Delete Car</button>
+            </form>
+        </section>
+    </main>
+
+</body>
+
+</html>

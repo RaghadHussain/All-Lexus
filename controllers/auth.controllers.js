@@ -2,11 +2,49 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/user.js");
 const bcrypt = require("bcrypt");
+const Dealer = require('../models/Dealer.js')
 
 
 // Sign up routes
 router.get("/sign-up", (req, res) => {
   res.render("auth/sign-up.ejs");
+});
+
+router.get("/dealer/sign-up", (req, res) => {
+  res.render("auth/dealerSign-in.ejs");
+});
+
+
+router.post("/dealer/sign-up", async (req, res) => {
+  const userInDatabase = await User.findOne({ username: req.body.username });
+  if (userInDatabase) {
+    return res.send("Username already taken.");
+  }
+
+  if (req.body.password !== req.body.confirmPassword) {
+    return res.send("Password and Confirm Password must match");
+  }
+
+  const hashedPassword = bcrypt.hashSync(req.body.password, 10);
+  req.body.password = hashedPassword;
+
+  // validation logic
+
+    const dealerInfo = await Dealer.create({
+    dealerName:  req.body.dealerName,
+    phoneNumber: req.body.phoneNumber,
+    email: req.body.email,
+    city: req.body.city,
+    address: req.body.address
+  })
+
+
+  const user = await User.create({
+    username: req.body.username,
+    password: req.body.password,
+    dealerId: dealerInfo._id
+  });
+  res.redirect("/auth/sign-in");
 });
 
 router.post("/sign-up", async (req, res) => {
@@ -29,11 +67,12 @@ router.post("/sign-up", async (req, res) => {
 });
 
 
-
 // Sign in routes
 router.get("/sign-in", (req, res) => {
   res.render("auth/sign-in.ejs");
 });
+
+
 
 
 
@@ -43,6 +82,7 @@ router.post("/sign-in", async (req, res) => {
   if (!userInDatabase) {
     return res.send("Login failed. Please try again.");
   }
+  
 
   // There is a user! Time to test their password with bcrypt
   const validPassword = bcrypt.compareSync(
@@ -58,11 +98,13 @@ router.post("/sign-in", async (req, res) => {
   // If there is other data you want to save to `req.session.user`, do so here!
   req.session.user = {
     username: userInDatabase.username,
-    _id: userInDatabase._id
+    _id: userInDatabase._id,
+    isDealer: userInDatabase.dealerId ? true : false
   };
 
   res.redirect("/");
 });
+
 
 
 router.get("/sign-out", (req, res) => {
