@@ -1,0 +1,18 @@
+const router = require("express").Router() 
+const wishlist = require('../models/Wishlist')
+
+
+router.get('/', async (request, response) => {
+    try {
+    const foundedWishlist = await wishlist.find({ user: request.session.user._id }).populate('user car')
+        
+    response.render('wishlist/wishlist.ejs', { wishlist: foundedWishlist })
+    } catch (e) {
+        console.log('ERROR:'+ e)
+    }
+    
+})
+
+
+
+module.exports = router;
