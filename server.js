@@ -17,6 +17,7 @@ const authController = require("./controllers/auth.controllers.js");
 const indexController = require("./controllers/index.controllers.js");
 const carController = require('./controllers/car.controller.js')
 const dealerController = require('./controllers/dealer.controllers.js')
+const wishlistController = require('./controllers/wishlist.controller.js')
 
 
 // Middleware
@@ -61,6 +62,7 @@ app.use('/auth',authController)
 app.use('/',indexController)
 app.use('/lexusCar', carController)
 app.use('/dealer', dealerController)
+app.use('/wishlist', wishlistController)
 
 
 
