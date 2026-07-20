@@ -13,6 +13,13 @@ router.get('/', async (request, response) => {
     
 })
 
-
+router.delete('/:id', async (request, response) => {
+    try {
+        await wishlist.findByIdAndDelete(request.params.id)
+        response.redirect('/')
+    } catch (e) {
+        console.log('ERROR:' + e)
+    }
+})
 
 module.exports = router;
