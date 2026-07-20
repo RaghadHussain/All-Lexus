@@ -1,19 +1,19 @@
-const router = require("express").Router() 
+const router = require("express").Router()
 const LexusCar = require("../models/LexusCar")
 const testDrive = require('../models/TestDriveBooking')
 
 
 router.get('/:carId', async (request, response) => {
-    try{
-        const foundCar = LexusCar.findById(request.params.carId).populate('dealer')
-    response.render('testDriveBooking/testDraiveBooking.ejs', {car: foundCar})
-    }catch(e){
-        console.log('ERROR: '+ e)
+    try {
+        const foundCar = LexusCar.findById(request.params.cassrId).populate('dealer')
+        response.render('testDriveBooking/testDraiveBooking.ejs', { car: foundCar })
+    } catch (e) {
+        console.log('ERROR: ' + e)
     }
 })
 
-router.post('/:carId', async(request, response) => {
-    try{
+router.post('/:carId', async (request, response) => {
+    try {
         const createdTestDriveBooking = await TestDriveBooking.create({
             userId: request.session.user._id,
             car: request.params.carId,
@@ -22,8 +22,8 @@ router.post('/:carId', async(request, response) => {
         })
         res.redirect('/lexusCar/carId')
     }
-    catch(e){
-        console.log('ERROR: '+ e)
+    catch (e) {
+        console.log('ERROR: ' + e)
     }
 })
 
