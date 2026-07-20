@@ -9,6 +9,10 @@ const testDriveSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'LexusCar'
     },
+    dealer:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'dealer'
+    },
     date:{
         type: Date,
         required: true
@@ -17,3 +21,5 @@ const testDriveSchema = new mongoose.Schema({
         type: String
     }
 })
+
+const TestDriveBooking = mongoose.model('TestDriveBooking', testDriveSchema)
