@@ -1,6 +1,8 @@
 const router = require("express").Router()
+const { request } = require("express")
 const isSignedIn = require('../middleware/is-signed-in')
 const car = require('../models/LexusCar')
+const review = require('../models/Review')
 const multer = require('multer')
 const upload = multer({ dest: 'uploads' })
 
@@ -24,7 +26,7 @@ router.post('/new', isSignedIn, upload.single('carImage'), async (request, respo
             horsepower: request.body.horsepower,
             carImage: request.file.filename
         })
-        response.redirect('/')
+        response.redirect('/lexusCar')
     } catch (e) {
         console.log('ERROR:' + e)
     }
@@ -36,13 +38,26 @@ router.post('/new', isSignedIn, upload.single('carImage'), async (request, respo
 router.get('/:id', isSignedIn, async (request, response) => {
     try {
         const foundedCar = await car.findById(request.params.id).populate('dealer')
-        response.render('cars/viewCarDetails.ejs', { car: foundedCar })
+        const foundedReviews = await review.find().populate('user')
+        response.render('cars/viewCarDetails.ejs', { car: foundedCar },{review: foundedReviews})
     } catch (e) {
         console.log('ERROR:' + e)
     }
 })
 
-
+router.post('/:id/review',async (request,response)=>{
+    try{
+        await review.create({
+            user: request.session.user._id,
+            car: request.params.id,
+            rating: request.body.rating,
+            reviewComment: request.body.reviewComment
+        })
+        response.redirect('/lexusCar/id')
+    }catch(e){
+    console.log('ERROR:' + e)
+    }
+})
 
 //Delete Rout
 router.delete('/:id', isSignedIn, async (request, response) => {

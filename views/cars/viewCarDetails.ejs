@@ -42,6 +42,26 @@
                 <button>Delete Car</button>
             </form>
         </section>
+
+        <h2>Reviews</h2>
+        <% if() %>
+        <% for (let oneReview of listing.reviews) {%>
+        <p><%= oneReview.reviewBody %></p>
+        <p><%= oneReview.star %>/5</p>
+        <p>By: <%= oneReview.creator.username %></p>
+    <% } %>
+
+    <form action="/listings/<%=listing._id%>/add-review" method="post">
+        <label for="reviewBody">Body</label>
+        <input id="reviewBody" name="reviewBody" type="text">
+
+        <label for="star">Stars</label>
+        <input name="star" id="star" type="number" >
+
+        <button>Add Review</button>
+    </form>
+
+    
     </main>
 
 </body>

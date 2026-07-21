@@ -22,13 +22,4 @@ router.delete('/:id', (request, response) => {
 })
 
 
-router.put('/:id/edit', async (request, response) => {
-    try {
-        const updatedUserInfo = await User.findByIdAndUpdate(request.params.id, request.body)
-        response.redirect('/user')
-    } catch (e) {
-        console.log('ERROR:' + e)
-    }
-})
-
 module.exports = router;
