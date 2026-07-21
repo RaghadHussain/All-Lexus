@@ -26,7 +26,7 @@ router.post('/new', isSignedIn, upload.single('carImage'), async (request, respo
             horsepower: request.body.horsepower,
             carImage: request.file.filename
         })
-        response.redirect('/lexusCar')
+        response.redirect('/dealer/myCars')
     } catch (e) {
         console.log('ERROR:' + e)
     }
@@ -35,17 +35,19 @@ router.post('/new', isSignedIn, upload.single('carImage'), async (request, respo
 
 
 //View car details
-router.get('/:id', isSignedIn, async (request, response) => {
+router.get('/:id', async (request, response) => {
     try {
         const foundedCar = await car.findById(request.params.id).populate('dealer')
         const foundedReviews = await review.find().populate('user')
-        response.render('cars/viewCarDetails.ejs', { car: foundedCar }, { review: foundedReviews })
+        // console.log(foundedCar)
+        console.log(foundedReviews)
+        response.render('cars/viewCarDetails.ejs', { car: foundedCar, review: foundedReviews,  user: request.session.user })
     } catch (e) {
         console.log('ERROR:' + e)
     }
 })
 
-router.post('/:id/review', async (request, response) => {
+router.post('/:id/review', isSignedIn,async (request, response) => {
     try {
         await review.create({
             user: request.session.user._id,
@@ -53,16 +55,16 @@ router.post('/:id/review', async (request, response) => {
             rating: request.body.rating,
             reviewComment: request.body.reviewComment
         })
-        response.redirect('/lexusCar/id')
+        response.redirect(`/lexusCar/${request.params.id}`)
     } catch (e) {
         console.log('ERROR:' + e)
     }
 })
 
-router.delete('/:id/deleteReview', async (request, response) => {
+router.delete('/:carId/:id/deleteReview', isSignedIn,async (request, response) => {
     try {
         await review.findByIdAndDelete(request.params.id)
-        response.redirect('/lexusCar')
+        response.redirect(`/lexusCar/${request.params.carId}`)
     } catch (e) {
         console.log('ERROR:' + e)
     }
@@ -72,7 +74,7 @@ router.delete('/:id/deleteReview', async (request, response) => {
 router.delete('/:id', isSignedIn, async (request, response) => {
     try {
         await car.findByIdAndDelete(request.params.id)
-        response.redirect('/lexusCar')
+        response.redirect('/')
     } catch (e) {
         console.log('ERROR:' + e)
     }
@@ -92,16 +94,15 @@ router.get('/:id/edit', isSignedIn, async (request, response) => {
 
 router.put('/:id/edit', isSignedIn, upload.single('carImage'), async (request, response) => {
     try {
-        if (request.file.filename) {
+        if (request.file) {
             request.body.carImage = request.file.filename
         }
         const updatedCarInfo = await car.findByIdAndUpdate(request.params.id, request.body)
-        response.redirect('')
+        response.redirect('/')
     } catch (e) {
         console.log('ERROR:' + e)
     }
 })
-// 
 
 
 

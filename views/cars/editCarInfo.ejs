@@ -10,19 +10,19 @@
 <body>
     <header>
         <%- include('../partials/navbar') %>
-        <h1>Edit Lexus<%= car.model %> Information</h1>
+            <h1>Edit Lexus <%= car.model %> Information</h1>
     </header>
     <main>
         <section>
 
-            <form action="/lexusCar/<%= car._id %>?_method=PUT/edit" method="post" enctype="multipart/form-data">
+            <form action="/lexusCar/<%= car._id %>/edit?_method=PUT" method="post" enctype="multipart/form-data">
                 <label for="model">Car Model: </label>
                 <input value="<%= car.model %>" id="model" name="model" type="text">
 
                 <label for="condition">Car Condition: </label>
                 <select name="condition" id="condition">
-                    <option value="New">New</option>
-                    <option value="Used">Used</option>
+                    <option value="New" <%=car.condition==='New' ? 'selected' : '' %>>New</option>
+                    <option value="Used" <%=car.condition==='Used' ? 'selected' : '' %>>Used</option>
                 </select>
 
                 <label for="type">Car Type: </label>
@@ -47,11 +47,15 @@
 
                 <label for="horsepower">horse Power: </label>
                 <input value="<%= car.horsepower %>" id="horsepower" name="horsepower" type="number">
-                
-                <label for="carImage">Insert Car Image: </label>
-                <input id="carImage" name="carImage" type="file" accept="image/*">
 
-                <button type="submit">Add Car</button>
+                <label for="carImage">Insert Car Image: </label>
+                <% if (car.carImage) { %>
+                    <img src="/uploads/<%= car.carImage %>" alt="<%= car.model %>">
+                    <p>Current image (upload a new one below only if you want to replace it)</p>
+                    <% } %>
+                        <input id="carImage" name="carImage" type="file" accept="image/*">
+
+                        <button type="submit">Edit Car Information</button>
             </form>
         </section>
     </main>

@@ -1,21 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
-  </head>
-  <body>
-    <%- include('../partials/navbar') %>
-    <h1>Login</h1>
-    <form action="/auth/sign-in" method="POST">
-      <label for="username">Username:</label>
-      <input type="text" name="username" id="username" />
 
-      <label for="password">Password:</label>
-      <input type="password" name="password" id="password" />
-      
-      <button type="submit">Login</button>
-    </form>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+</head>
+
+<body>
+  <header>
+    <%- include('../partials/navbar') %>
+      <h1>Login</h1>
+  </header>
+  <main>
+    <section>
+      <form action="/auth/sign-in" method="POST">
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username" />
+
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" />
+
+        <button type="submit">Login</button>
+    </section>
+  </main>
+
+  </form>
+</body>
+
 </html>

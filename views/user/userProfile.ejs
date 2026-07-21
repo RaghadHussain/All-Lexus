@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account Details</title>
 </head>
+
 <body>
     <header>
-    <%- include('../partials/navbar') %>
-    <h1><%= user.username %> Account Details</h1>
+        <%- include('../partials/navbar') %>
+            <h1>
+                <%= user.username %> Account Details
+            </h1>
     </header>
     <main>
-        <section id="info-section">
-        <p>Full Name: <%= user.fullName %></p>
-        <p>Phone Number: <%= user.phoneNumber %></p>
-        </section>
-
-        <section id="button">
-            <form action="/user/<%= user._id %>?_method=delete" method="post">
-                <button>Delete Car</button>
-            </form>
-        </section>
+        <section>
+            <p>Full Name: <%= user.fullName %>
+            </p>
+            <p>Phone Number: <%= user.phoneNumber %>
+            </p>
     </main>
 </body>
+
 </html>

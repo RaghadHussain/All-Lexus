@@ -11,15 +11,5 @@ router.get('/', async (request, response) => {
     
 })
 
-router.delete('/:id', (request, response) => {
-    try { 
-        await User.findByIdAndDelete(request.params.id)
-        response.redirect('/')
-    } catch (e) {
-        console.log('ERROR:'+ e)
-    }
-    
-})
-
 
 module.exports = router;

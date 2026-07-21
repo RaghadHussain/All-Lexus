@@ -38,12 +38,16 @@ router.post("/dealer/sign-up", async (req, res) => {
     address: req.body.address
   })
 
-
+  console.log('this is dealer info', dealerInfo)
+  
+  
   const user = await User.create({
     username: req.body.username,
     password: req.body.password,
     dealerId: dealerInfo._id
   });
+  console.log('this is user info', user)
+  
   res.redirect("/auth/sign-in");
 });
 

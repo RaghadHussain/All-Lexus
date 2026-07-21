@@ -18,13 +18,15 @@
                 <input value="Lexus <%= car.model %>" type="text" name="model" id="model">
 
                 <label for="dealerName">Dealership: </label>
-                <input value="<%= car.dealer.dealerName %>" type="text" name="dealerName" id="dealerName">
+                <input value="<%= car.dealer?.dealerName || 'Unknown dealer' %>" type="text" name="dealerName" id="dealerName">
 
                 <label for="date">Choose Your Preferred Date & Time: </label>
-                <input type="datetime" name="date" id="date">
+                <input type="datetime-local" name="date" id="date">
 
                 <label for="note">Any Notes? </label>
                 <input type="text" name="note" id="note">
+
+                <button>Book</button>
             </form>
         </section>
     </main>

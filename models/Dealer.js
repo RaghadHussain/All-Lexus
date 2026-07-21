@@ -8,12 +8,10 @@ const dealerShema = new mongoose.Schema({
     phoneNumber: {
         type: Number,
         required: true,
-        unique: true
     },
     email: {
         type: String,
         required: true,
-        unique: true
     },
     city:{
         type: String,

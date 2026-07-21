@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bookings</title>
+</head>
+
+<body>
+    <header>
+        <%- include('../partials/navbar') %>
+            <h1>Test Drive Bookings</h1>
+    </header>
+    <main>
+        <section>
+            <% if(bookings.length===0){ %>
+                <p>No Bookings Yet!</p>
+                <% } else{ %>
+                    <table border="1">
+                        <thead>
+                            <tr>
+                                <th>Car Model</th>
+                                <th>Customer Name</th>
+                                <th>Customer Phone Number</th>
+                                <th>Date & Time</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for(let booking of bookings){ %>
+                                <tr>
+                                    <td>
+                                        <%= booking.car?.model</td>
+                                    <td>
+                                        <%= booking.userId?.name%>
+                                    </td>
+                                    <td>
+                                        <%= booking.userId?.phoneNumber%>
+                                    </td>
+                                    <td>
+                                        <%= new Date(booking.date).toLocaleString() %>
+                                    </td>
+                                    <td>
+                                        <%= booking.note || '-' %>
+                                    </td>
+                                </tr>
+                                <% } %>
+                        </tbody>
+                    </table>
+                    <% } %>
+        </section>
+    </main>
+</body>
+
+</html>

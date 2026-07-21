@@ -1,31 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign Up</title>
-  </head>
-  <body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up</title>
+</head>
+
+<body>
+  <header>
     <%- include('../partials/navbar') %>
-    <h1>Create a new account!</h1>
-    <form action="/auth/sign-up" method="post">
-      <label for="username">Username:</label>
-      <input type="text" name="username" id="username" />
+      <h1>Create a new account!</h1>
+  </header>
+  <main>
+    <section>
+      <form action="/auth/sign-up" method="post">
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username" />
 
-      <label for="password">Password:</label>
-      <input type="password" name="password" id="password" />
-      
-      <label for="confirmPassword">Confirm Password:</label>
-      <input type="password" name="confirmPassword" id="confirmPassword" />
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" minlength="8" maxlength="8" />
 
-      
-      <label for="fullName">Name: </label>
-      <input type="text" name="fullName" id="fullName">
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" name="confirmPassword" id="confirmPassword" minlength="8" maxlength="8" />
 
-      <label for="phoneNumber">Phone Number: </label>
-      <input type="number" name="phoneNumber" id="phoneNumber">
-      
-      <button type="submit">Sign up</button>
-    </form>
-  </body>
+
+        <label for="fullName">Name: </label>
+        <input type="text" name="fullName" id="fullName">
+
+        <label for="phoneNumber">Phone Number: </label>
+        <input type="number" name="phoneNumber" id="phoneNumber" minlength="8" maxlength="8">
+
+        <button type="submit">Sign up</button>
+
+      </form>
+    </section>
+    <section>
+      <a href="/auth/dealer/sign-up">Are you a Car Dealer?</a>
+    </section>
+
+  </main>
+
+</body>
+
 </html>

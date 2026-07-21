@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wishlist</title>
 </head>
+
 <body>
     <header>
-        <h1><%= wishlist.user.fullName %> Wishlist</h1> 
+        <%- include('../partials/navbar') %>
+            <h1>
+                <%= wishlist.user.fullName %> Wishlist
+            </h1>
     </header>
     <main>
         <section>
             <% for(let item of wishlist){ %>
-                <p>Lexus <%= item.car.model %></p>
+                <p>Lexus <%= item.car.model %>
+                </p>
                 <form action="/wishlist/<%= item._id %>?_method=delete" method="post">
                     <button>Remove</button>
                 </form>
-           <% } %>
+                <% } %>
         </section>
     </main>
 </body>
+
 </html>

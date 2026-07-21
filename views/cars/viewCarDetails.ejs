@@ -10,13 +10,14 @@
 <body>
     <header>
         <%- include('../partials/navbar') %>
-        <h1>Lexues <%= car.model %>
-        </h1>
-        <h2>
-            <%= car.dealer?.dealerName || 'Unknown dealer' %> Dealership
-        </h2>
+            <h1>Lexues <%= car.model %>
+            </h1>
+            <h2>
+                <%= car.dealer?.dealerName || 'Unknown dealer' %> Dealership
+            </h2>
     </header>
     <main>
+
         <section id="carDetails">
             <img src="/uploads/<%= car.carImage %>" alt="<%= car.model %>">
             <p>Car Condition: <%= car.condition %>
@@ -34,42 +35,71 @@
             <p>Car Status: <%= car.status %>
             </p>
         </section>
-        <section id="buttons">
-            <form action="/lexusCar/<%= car._id %>/edit" method="get">
-                <button>Edit Car Information</button>
-            </form>
-            <form action="/lexusCar/<%= car._id %>?_method=DELETE" method="post">
-                <button>Delete Car</button>
-            </form>
+
+        <section>
+            <% if (user && user.isdealer && car.dealer && String(user.isdealer)===String(car.dealer._id)) { %>
+                <form action="/lexusCar/<%= car._id %>/edit?_method=put" method="get">
+                    <button>Edit Car Information</button>
+                </form>
+                <form action="/lexusCar/<%= car._id %>?_method=delete" method="post">
+                    <button>Delete Car</button>
+                </form>
+                <% } %>
         </section>
 
-        <h2>Reviews</h2>
-        <% if(review){ %>
-        <% for (let oneReview of review) {%>
-        <p><%= oneReview.user.username  %></p>
-        <p><%= oneReview.rating %>/5</p>
-        <p><%= oneReview.reviewComment %></p>
+        <section>
+            <% if (user && !user.isdealer ) { %>
+                <form action="/testDrive/<%= car._id %>" method="get">
+                    <button>Book Test Drive</button>
+                </form>
+                <% } %>
+        </section>
 
-    <% if(session.user._id === review.user){ %>
-        </form>
-            <form action="/lexusCar/<%= review._id %>/deleteReview?_method=DELETE" method="post">
-                <button>Delete Review</button>
+        <section>
+            <h2>Reviews</h2>
+            <form action="/lexusCar/<%=car._id%>/review" method="post">
+                <label for="rating">Rating: </label>
+                <input id="rating" name="rating" type="number">
+
+                <label for="reviewComment">Comment: </label>
+                <input name="reviewComment" id="reviewComment" type="text">
+
+                <button>Add Review</button>
             </form>
-        <% } %>
 
-    <% } }else{ %>
-        <p>No Reviews Yet!</p>
-        <% } %>
+            <% if(review && review.length> 0){ %>
+                <% for (let oneReview of review) {%>
+                    <p>
+                        <%= oneReview.user.username %>
+                    </p>
 
-    <form action="/lexusCar/<%=car._id%>/review" method="post">
-        <label for="rating">Rating: </label>
-        <input id="rating" name="rating" type="text">
+                    <% if (oneReview.rating===4) { %>
+                        <p>⭐⭐⭐⭐</p>
+                        <% } else { %>
 
-        <label for="reviewComment">Comment: </label>
-        <input name="reviewComment" id="reviewComment" type="number" >
+                            <p>No stars :(</p>
 
-        <button>Add Review</button>
-    </form>
+                            <% } %>
+                                <!-- <p>
+                    <%= oneReview.rating %>/5
+                </p> -->
+                                <p>
+                                    <%= oneReview.reviewComment %>
+                                </p>
+
+                                <% if(user && oneReview.user && user._id.toString()===oneReview.user._id.toString()){ %>
+                                    </form>
+                                    <form
+                                        action="/lexusCar/<%= car._id %>/<%= oneReview._id %>/deleteReview?_method=DELETE"
+                                        method="post">
+                                        <button>Delete Review</button>
+                                    </form>
+                                    <% } %>
+
+                                        <% } }else{ %>
+                                            <p>No Reviews Yet!</p>
+                                            <% } %>
+        </section>
 
     </main>
 
