@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Your Account Information</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
@@ -13,7 +14,7 @@
         <h1>Update Your Account Information</h1>
     </header>
     <main>
-        <section>
+        <section class="sign">
             <form action="/dealer/<%= dealer._id %>?_method=PUT/edit" method="post">
                 <label for="dealerName">Dealership Name: </label>
                 <input value="<%= dealer.dealerName %>" id="dealerName" name="dealerName" type="text">

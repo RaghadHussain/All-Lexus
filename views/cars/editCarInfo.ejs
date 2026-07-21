@@ -5,15 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Lexus Car Information</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
     <header>
         <%- include('../partials/navbar') %>
-            <h1>Edit Lexus <%= car.model %> Information</h1>
+    <h1>Edit Lexus <%= car.model %> Information</h1>
     </header>
     <main>
-        <section>
+        <section class="sign">
 
             <form action="/lexusCar/<%= car._id %>/edit?_method=PUT" method="post" enctype="multipart/form-data">
                 <label for="model">Car Model: </label>

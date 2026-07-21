@@ -103,7 +103,7 @@ router.post("/sign-in", async (req, res) => {
   req.session.user = {
     username: userInDatabase.username,
     _id: userInDatabase._id,
-    isDealer: userInDatabase.dealerId ? true : false
+    isdealer: userInDatabase.dealerId ? true : false
   };
 
   res.redirect("/");

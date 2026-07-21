@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Londrina+Shadow&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #121214;
+    color: #e8e6e2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 28px 40px;
+    gap: 28px;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+nav {
+    background-color: #1b1b1e;
+    border: 1px solid #29292d;
+    border-radius: 10px;
+    padding: 20px 24px;
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+nav a {
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #e8e6e2;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #a68f6b;
+}
+
+header h1 {
+    font-family: "Poppins", sans-serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: #e8e6e2;
+    text-align: center;
+}
+
+header h2 {
+    font-family: "Inter", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: #8f8d92;
+}
+
+#welcomeTitle {
+    font-family: "Poppins", sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    color: #e8e6e2;
+    line-height: 1;
+}
+
+#subTitle {
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    color: #8f8d92;
+    margin-top: -6px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+    max-width: 1100px;
+}
+
+main section {
+    background-color: #1b1b1e;
+    border: 1px solid #29292d;
+    border-radius: 10px;
+    padding: 20px 24px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+main h2 {
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #e8e6e2;
+}
+
+main p {
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    color: #e8e6e2;
+}
+
+main a {
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    color: #a68f6b;
+    text-decoration: none;
+}
+
+main a:hover {
+    color: #bda67f;
+}
+
+main button {
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 1px solid #29292d;
+    border-radius: 6px;
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    color: #8f8d92;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+main button:hover {
+    border-color: #a68f6b;
+    color: #a68f6b;
+}
+
+main section img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+}
+
+main table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+main th,
+main td {
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    color: #e8e6e2;
+    padding: 10px 12px;
+    border: 1px solid #29292d;
+    text-align: center;
+}
+
+main th {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    color: #a68f6b;
+    background-color: #121214;
+}
+
+.cars {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    width: 100%;
+}
+
+.carCard {
+    width: 100%;
+    max-width: 220px;
+    padding: 14px 12px;
+    background-color: #121214;
+    border: 1px solid #29292d;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    transition: all .2s;
+}
+
+.carCard:hover {
+    border-color: #a68f6b;
+    background-color: #a68f6b18;
+}
+
+.carImage {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+.carModel {
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #e8e6e2;
+    text-align: center;
+}
+
+.carDealer {
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    color: #8f8d92;
+    text-align: center;
+}
+
+.carDetails {
+    width: 100%;
+    padding: 8px 0;
+    background-color: transparent;
+    border: 1px solid #29292d;
+    border-radius: 8px;
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    color: #8f8d92;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.carDetails:hover {
+    border-color: #a68f6b;
+    color: #a68f6b;
+}
+
+.sign form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.sign label {
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    color: #8f8d92;
+}
+
+.sign input,
+.sign select {
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    color: #e8e6e2;
+    background-color: #121214;
+    border: 1px solid #29292d;
+    border-radius: 6px;
+    padding: 10px 12px;
+    outline: none;
+}
+
+.sign input:focus,
+.sign select:focus {
+    border-color: #a68f6b;
+}
+
+.sign img {
+    width: 160px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.sign button {
+    margin-top: 6px;
+    padding: 10px 0;
+    background-color: #a68f6b;
+    border: none;
+    border-radius: 6px;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #121214;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.sign button:hover {
+    background-color: #bda67f;
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .carCard {
+        max-width: 100%;
+    }
+
+    .sign form {
+        max-width: 100%;
+    }
+
+    main table {
+        display: block;
+        overflow-x: auto;
+    }
+}

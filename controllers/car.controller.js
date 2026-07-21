@@ -7,7 +7,7 @@ const multer = require('multer')
 const upload = multer({ dest: 'uploads' })
 
 
-//Create Routs 
+
 router.get('/new', isSignedIn, (request, response) => {
     response.render('cars/addNewCar.ejs')
 })
@@ -34,7 +34,6 @@ router.post('/new', isSignedIn, upload.single('carImage'), async (request, respo
 
 
 
-//View car details
 router.get('/:id', async (request, response) => {
     try {
         const foundedCar = await car.findById(request.params.id).populate('dealer')
@@ -70,7 +69,6 @@ router.delete('/:carId/:id/deleteReview', isSignedIn,async (request, response) =
     }
 })
 
-//Delete Rout
 router.delete('/:id', isSignedIn, async (request, response) => {
     try {
         await car.findByIdAndDelete(request.params.id)
@@ -82,7 +80,6 @@ router.delete('/:id', isSignedIn, async (request, response) => {
 
 
 
-//Edit Routs 
 router.get('/:id/edit', isSignedIn, async (request, response) => {
     try {
         const foundedCar = await car.findById(request.params.id)

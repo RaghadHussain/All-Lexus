@@ -3,8 +3,6 @@ const Dealer = require('../models/Dealer')
 const LexusCar = require("../models/LexusCar")
 
 
-
-// View Cars 
 router.get('/myCars', async (request, response) => {
     try {
         if (request.session.user.isDealer) {
@@ -17,7 +15,6 @@ router.get('/myCars', async (request, response) => {
 })
 
 
-// View account details
 router.get('/account', async (request, response)=>{
      try {
         if (request.session.user.isDealer) {
@@ -30,7 +27,6 @@ router.get('/account', async (request, response)=>{
 })
 
 
-//Edit Routs 
 router.get('/:id/edit', async (request, response) => {
     try {
         const foundedDealer = await Dealer.findById(request.params.id)

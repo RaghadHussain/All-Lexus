@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lexues Details</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
@@ -18,7 +19,7 @@
     </header>
     <main>
 
-        <section id="carDetails">
+        <section>
             <img src="/uploads/<%= car.carImage %>" alt="<%= car.model %>">
             <p>Car Condition: <%= car.condition %>
             </p>
@@ -55,8 +56,9 @@
                 <% } %>
         </section>
 
-        <section>
+        <section class="sign">
             <h2>Reviews</h2>
+            <% if (user && !user.isdealer ) { %>
             <form action="/lexusCar/<%=car._id%>/review" method="post">
                 <label for="rating">Rating: </label>
                 <input id="rating" name="rating" type="number">
@@ -66,13 +68,13 @@
 
                 <button>Add Review</button>
             </form>
+                <% } %>
+        </section>
 
+        <section class="sign">
             <% if(review && review.length> 0){ %>
                 <% for (let oneReview of review) {%>
-                    <p>
-                        <%= oneReview.user.username %>
-                    </p>
-
+                    <p><%= oneReview.user.username %></p>
                     <% if (oneReview.rating===4) { %>
                         <p>⭐⭐⭐⭐</p>
                         <% } else { %>
