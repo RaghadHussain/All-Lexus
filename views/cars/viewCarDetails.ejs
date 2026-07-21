@@ -44,24 +44,33 @@
         </section>
 
         <h2>Reviews</h2>
-        <% if() %>
-        <% for (let oneReview of listing.reviews) {%>
-        <p><%= oneReview.reviewBody %></p>
-        <p><%= oneReview.star %>/5</p>
-        <p>By: <%= oneReview.creator.username %></p>
-    <% } %>
+        <% if(review){ %>
+        <% for (let oneReview of review) {%>
+        <p><%= oneReview.user.username  %></p>
+        <p><%= oneReview.rating %>/5</p>
+        <p><%= oneReview.reviewComment %></p>
 
-    <form action="/listings/<%=listing._id%>/add-review" method="post">
-        <label for="reviewBody">Body</label>
-        <input id="reviewBody" name="reviewBody" type="text">
+    <% if(session.user._id === review.user){ %>
+        </form>
+            <form action="/lexusCar/<%= review._id %>/deleteReview?_method=DELETE" method="post">
+                <button>Delete Review</button>
+            </form>
+        <% } %>
 
-        <label for="star">Stars</label>
-        <input name="star" id="star" type="number" >
+    <% } }else{ %>
+        <p>No Reviews Yet!</p>
+        <% } %>
+
+    <form action="/lexusCar/<%=car._id%>/review" method="post">
+        <label for="rating">Rating: </label>
+        <input id="rating" name="rating" type="text">
+
+        <label for="reviewComment">Comment: </label>
+        <input name="reviewComment" id="reviewComment" type="number" >
 
         <button>Add Review</button>
     </form>
 
-    
     </main>
 
 </body>

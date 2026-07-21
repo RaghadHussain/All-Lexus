@@ -39,14 +39,14 @@ router.get('/:id', isSignedIn, async (request, response) => {
     try {
         const foundedCar = await car.findById(request.params.id).populate('dealer')
         const foundedReviews = await review.find().populate('user')
-        response.render('cars/viewCarDetails.ejs', { car: foundedCar },{review: foundedReviews})
+        response.render('cars/viewCarDetails.ejs', { car: foundedCar }, { review: foundedReviews })
     } catch (e) {
         console.log('ERROR:' + e)
     }
 })
 
-router.post('/:id/review',async (request,response)=>{
-    try{
+router.post('/:id/review', async (request, response) => {
+    try {
         await review.create({
             user: request.session.user._id,
             car: request.params.id,
@@ -54,8 +54,17 @@ router.post('/:id/review',async (request,response)=>{
             reviewComment: request.body.reviewComment
         })
         response.redirect('/lexusCar/id')
-    }catch(e){
-    console.log('ERROR:' + e)
+    } catch (e) {
+        console.log('ERROR:' + e)
+    }
+})
+
+router.delete('/:id/deleteReview', async (request, response) => {
+    try {
+        await review.findByIdAndDelete(request.params.id)
+        response.redirect('/lexusCar')
+    } catch (e) {
+        console.log('ERROR:' + e)
     }
 })
 
@@ -63,7 +72,7 @@ router.post('/:id/review',async (request,response)=>{
 router.delete('/:id', isSignedIn, async (request, response) => {
     try {
         await car.findByIdAndDelete(request.params.id)
-        response.redirect('')
+        response.redirect('/lexusCar')
     } catch (e) {
         console.log('ERROR:' + e)
     }
@@ -91,7 +100,7 @@ router.put('/:id/edit', isSignedIn, upload.single('carImage'), async (request, r
     } catch (e) {
         console.log('ERROR:' + e)
     }
-}) 
+})
 // 
 
 
