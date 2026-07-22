@@ -15,7 +15,7 @@
     </header>
     <main>
         <section class="sign">
-            <form action="/dealer/<%= dealer._id %>?_method=PUT/edit" method="post">
+            <form action="/dealer/<%= dealer._id %>/edit?_method=PUT" method="post">
                 <label for="dealerName">Dealership Name: </label>
                 <input value="<%= dealer.dealerName %>" id="dealerName" name="dealerName" type="text">
 

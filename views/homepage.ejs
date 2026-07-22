@@ -15,14 +15,14 @@
     <main>
         <section>
             <div class="cars">
-                <div class="carCard">
-                    <% for(let oneCar of car){ %>
+                <% for(let oneCar of car){ %>
+                    <div class="carCard">
                <img class="carImage" src="/uploads/<%= oneCar.carImage %>" alt="<%= oneCar.model %>">
                <p class="carModel">Car Model: Lexus<%= oneCar.model %></p>
                <p class="carDealer">Car Dealer: <%= oneCar.dealer?.dealerName || 'Unknown dealer' %> </p>
                <a class="carDetails" href="/lexusCar/<%= oneCar._id %>">View Lexus Details</a>
+            </div>
            <% } %>
-                </div>
                 
             </div>
             

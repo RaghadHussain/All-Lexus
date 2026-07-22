@@ -13,6 +13,19 @@ router.get('/', async (request, response) => {
     
 })
 
+router.post('/:id', async (request, response)=>{
+try {
+   const createdWishlist =  await wishlist.create({
+        user: request.session.user._id,
+        car: request.params.id
+    })
+    response.redirect(`/lexusCar/${request.params.id}`)
+    console.log(createdWishlist)
+} catch (e) {
+    console.log('ERROR: '+ e)
+}
+})
+
 router.delete('/:id', async (request, response) => {
     try {
         await wishlist.findByIdAndDelete(request.params.id)

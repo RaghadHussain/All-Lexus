@@ -12,13 +12,13 @@
     <header>
         <%- include('../partials/navbar') %>
             <h1>
-                <%= wishlist.user.fullName %> Wishlist
+                 Wishlist
             </h1>
     </header>
     <main>
         <section>
             <% for(let item of wishlist){ %>
-                <p>Lexus <%= item.car.model %>
+                <p>Lexus
                 </p>
                 <form action="/wishlist/<%= item._id %>?_method=delete" method="post">
                     <button>Remove</button>

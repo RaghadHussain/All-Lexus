@@ -18,7 +18,6 @@
             </h2>
     </header>
     <main>
-
         <section>
             <img src="/uploads/<%= car.carImage %>" alt="<%= car.model %>">
             <p>Car Condition: <%= car.condition %>
@@ -37,74 +36,112 @@
             </p>
         </section>
 
+
+        <% if (user && user.isdealer && car.dealer && String(user.isdealer)===String(car.dealer._id)) { %>
         <section>
-            <% if (user && user.isdealer && car.dealer && String(user.isdealer)===String(car.dealer._id)) { %>
                 <form action="/lexusCar/<%= car._id %>/edit?_method=put" method="get">
                     <button>Edit Car Information</button>
                 </form>
                 <form action="/lexusCar/<%= car._id %>?_method=delete" method="post">
                     <button>Delete Car</button>
                 </form>
-                <% } %>
-        </section>
+            </section>
+            <% } %>
 
+        <% if (user && !user.isdealer ) { %>
+            <form action="/wishlist/<%= car._id %>" method="post">
+                <button>Add to Wishlist</button>
+            </form>
+        <% } %>
+
+        <% if (user && !user.isdealer ) { %>
         <section>
-            <% if (user && !user.isdealer ) { %>
                 <form action="/testDrive/<%= car._id %>" method="get">
                     <button>Book Test Drive</button>
                 </form>
-                <% } %>
         </section>
+        <% } %>
 
+        <% if (user && !user.isdealer ) { %>
         <section class="sign">
+                <form action="/lexusCar/<%=car._id%>/review" method="post">
+                    
+                    <label for="rating">Rating: </label>
+                    
+                    <div id="ratingIcon">
+                        <span class="star" data-value="1">★</span>
+                        <span class="star" data-value="2">★</span>
+                        <span class="star" data-value="3">★</span>
+                        <span class="star" data-value="4">★</span>
+                        <span class="star" data-value="5">★</span>
+                    </div>
+                    
+                    <input hidden id="ratingInput" name="rating" type="number" value="0">
+                    
+                    <label for="reviewComment">Comment: </label>
+                    <input name="reviewComment" id="reviewComment" type="text">
+                    
+                    <button>Add Review</button>
+                </form>
+            </section>
+            <% } %>
+            
+            <section class="sign">
             <h2>Reviews</h2>
-            <% if (user && !user.isdealer ) { %>
-            <form action="/lexusCar/<%=car._id%>/review" method="post">
-                <label for="rating">Rating: </label>
-                <input id="rating" name="rating" type="number">
-
-                <label for="reviewComment">Comment: </label>
-                <input name="reviewComment" id="reviewComment" type="text">
-
-                <button>Add Review</button>
-            </form>
-                <% } %>
-        </section>
-
-        <section class="sign">
             <% if(review && review.length> 0){ %>
                 <% for (let oneReview of review) {%>
-                    <p><%= oneReview.user.username %></p>
-                    <% if (oneReview.rating===4) { %>
+                    <p>
+                        <%= oneReview.user.username %>
+                    </p>
+                    <% if (oneReview.rating===1) { %>
+                        <p>⭐</p>
+                        <% } else if (oneReview.rating === 2) { %>
+                        <p>⭐⭐</p>
+                        <% } else if (oneReview.rating === 3) { %>
+                        <p>⭐⭐⭐</p>
+                        <% } else if (oneReview.rating === 4) { %>
                         <p>⭐⭐⭐⭐</p>
+                        <% } else if (oneReview.rating === 5) { %>
+                        <p>⭐⭐⭐⭐⭐</p>
                         <% } else { %>
-
-                            <p>No stars :(</p>
-
+                        <p>No Rating!</p>
+                        <% } %>
+                        <p> <%= oneReview.reviewComment %> </p>
+        
+                        <% if(user && oneReview.user && user._id.toString()===oneReview.user._id.toString()){ %>
+                            </form>
+                            <form action="/lexusCar/<%= car._id %>/<%= oneReview._id %>/deleteReview?_method=DELETE" method="post">
+                                <button>Delete Review</button>
+                            </form>
                             <% } %>
-                                <!-- <p>
-                    <%= oneReview.rating %>/5
-                </p> -->
-                                <p>
-                                    <%= oneReview.reviewComment %>
-                                </p>
-
-                                <% if(user && oneReview.user && user._id.toString()===oneReview.user._id.toString()){ %>
-                                    </form>
-                                    <form
-                                        action="/lexusCar/<%= car._id %>/<%= oneReview._id %>/deleteReview?_method=DELETE"
-                                        method="post">
-                                        <button>Delete Review</button>
-                                    </form>
-                                    <% } %>
-
-                                        <% } }else{ %>
-                                            <p>No Reviews Yet!</p>
-                                            <% } %>
+                        
+                                <% } }else{ %>
+                                    <p>No Reviews Yet!</p>
+                        <% } %>
         </section>
 
     </main>
 
+    <script>
+        const ratingIcon = document.querySelectorAll('.star')
+        const ratingInput = document.querySelector('#ratingInput')
+
+        ratingIcon.forEach((icon) => {
+            icon.addEventListener('click', () => {
+                const currentValue = Number(icon.dataset.value)
+                ratingInput.value = currentValue
+                console.log(currentValue)
+
+                ratingIcon.forEach((icon) => {
+                    if (Number(icon.dataset.value) <= currentValue) {
+                        icon.classList.add('active')
+                    } else if (Number(icon.dataset.value) >= currentValue) {
+                        icon.classList.remove('active')
+                    }
+                })
+            })
+        })
+    </script>
 </body>
 
 </html>

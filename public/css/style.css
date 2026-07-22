@@ -173,7 +173,7 @@ main th {
 .cars {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
     gap: 16px;
@@ -182,7 +182,7 @@ main th {
 
 .carCard {
     width: 100%;
-    max-width: 220px;
+    max-width: 250px;
     padding: 14px 12px;
     background-color: #121214;
     border: 1px solid #29292d;
@@ -296,6 +296,23 @@ main th {
 
 .sign button:hover {
     background-color: #bda67f;
+}
+
+.star {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.star:hover {
+    color: gold;
+}
+
+.active {
+    color: gold;
+}
+
+#ratingIcon {
+    text-align: center;
 }
 
 @media (max-width: 768px) {

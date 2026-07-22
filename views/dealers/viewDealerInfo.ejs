@@ -9,18 +9,18 @@
 <body>
     <header>
     <%- include('../partials/navbar') %>
-    <h1><%= dealer.dealerName %> Account Details</h1>
+    <h1><%= dealer.dealerId.dealerName %> Account Details</h1>
     </header>
     <main>
         <section>
-        <p>Phone Number: <%= dealer.phoneNumber %></p>
-        <p>Email: <%= dealer.email %></p>
-        <p>Dealership City: <%= dealer.city %></p>
-        <p>Dealership Address: <%= dealer.address %></p>  
+        <p>Phone Number: <%= dealer.dealerId.phoneNumber %></p>
+        <p>Email: <%= dealer.dealerId.email %></p>
+        <p>Dealership City: <%= dealer.dealerId.city %></p>
+        <p>Dealership Address: <%= dealer.dealerId.address %></p>  
         </section>
 
         <section>
-            <form action="/dealer/<%= dealer._id %>/edit" method="get">
+            <form action="/dealer/<%= dealer.dealerId._id %>/edit" method="get">
                 <button>Edit Car Information</button>
             </form>
         </section>

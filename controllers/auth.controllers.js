@@ -86,7 +86,6 @@ router.post("/sign-in", async (req, res) => {
   if (!userInDatabase) {
     return res.send("Login failed. Please try again.");
   }
-  
 
   // There is a user! Time to test their password with bcrypt
   const validPassword = bcrypt.compareSync(
@@ -96,6 +95,7 @@ router.post("/sign-in", async (req, res) => {
   if (!validPassword) {
     return res.send("Login failed. Please try again.");
   }
+  console.log('here')
 
   // There is a user AND they had the correct password. Time to make a session!
   // Avoid storing the password, even in hashed format, in the session
@@ -103,7 +103,7 @@ router.post("/sign-in", async (req, res) => {
   req.session.user = {
     username: userInDatabase.username,
     _id: userInDatabase._id,
-    isdealer: userInDatabase.dealerId ? true : false
+    isdealer: userInDatabase.dealerId ? userInDatabase.dealerId : null
   };
 
   res.redirect("/");

@@ -14,12 +14,12 @@
     </header>
     <main>
         <section class="sign">
-            <form action="/<%= car._id %>" method="post">
+            <form action="/testDrive/<%= car._id %>" method="post">
                 <label for="model">Lexus Model: </label>
-                <input value="Lexus <%= car.model %>" type="text" name="model" id="model">
+                <input value="Lexus <%= car.model %>" type="text" name="model" id="model" disabled>
 
                 <label for="dealerName">Dealership: </label>
-                <input value="<%= car.dealer?.dealerName || 'Unknown dealer' %>" type="text" name="dealerName" id="dealerName">
+                <input value="<%= car.dealer?.dealerName || 'Unknown dealer' %>" type="text" name="dealerName" id="dealerName" disabled>
 
                 <label for="date">Choose Your Preferred Date & Time: </label>
                 <input type="datetime-local" name="date" id="date">

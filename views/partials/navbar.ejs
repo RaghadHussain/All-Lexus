@@ -3,12 +3,12 @@
     <a href="/">All Lexus Cars</a>
     <% if (user && user.isdealer){ %>
         <a href="/dealer/myCars">My Cars</a>
-        <a href="">Test Drive Bookings</a>
-        <a href="">Account</a>
+        <a href="/testDrive/viewBookings">Test Drive Bookings</a>
+        <a href="/dealer/account">Account</a>
     <a href="/auth/sign-out">Logout</a>
     <% } else if (user){ %>
-        <a href="">My Wishlist</a>
-        <a href="">Account</a>
+        <a href="/wishlist">My Wishlist</a>
+        <a href="/user">Account</a>
     <a href="/auth/sign-out">Logout</a>
     <% } else{ %>
     <a href="/auth/sign-up">Sign up</a>
