@@ -11,19 +11,21 @@
 <body>
     <header>
         <%- include('../partials/navbar') %>
-            <h1>All <%= car.dealer?.dealerName || 'anything'%> Cars</h1>
+            <h1>All Lexus Cars</h1>
     </header>
     <main>
 
-        <section>
+        
             <% let counter=1 %>
                 <% for(let oneCar of car){ %>
-                    <p>Car <%= counter %>: Lexus <%= oneCar.model %>
+                    <section>
+                    <p class="model">Car <%= counter %>: Lexus <%= oneCar.model %>
                     </p>
-                    <a href="/lexusCar/<%= oneCar._id %>">View Lexues Details</a>
+                    <a class="model" href="/lexusCar/<%= oneCar._id %>">View Lexues Details</a>
                     <% counter++ %>
+                </section>
                         <% } %>
-        </section>
+        
         <section>
             <form action="/lexusCar/new" method="get">
                 <button>Add New Car</button>

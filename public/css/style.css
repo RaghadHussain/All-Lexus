@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Londrina+Shadow&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Londrina+Shadow&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prata&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 * {
     box-sizing: border-box;
     margin: 0;
@@ -7,8 +6,8 @@
 }
 
 body {
-    background-color: #121214;
-    color: #e8e6e2;
+    background-color: #EAE3D5;
+    color: #26221D;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -25,58 +24,60 @@ header {
 }
 
 nav {
-    background-color: #1b1b1e;
-    border: 1px solid #29292d;
+    background-color: #F7F3EC;
+    border: 1px solid #D2C7B3;
     border-radius: 10px;
     padding: 20px 24px;
     width: 100%;
-    max-width: 1100px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     gap: 12px;
+    
 }
 
 nav a {
-    font-family: "Poppins", sans-serif;
+    font-family: 'Prata', serif;
     font-size: 14px;
     font-weight: 500;
-    color: #e8e6e2;
+    color: #26221D;
     text-decoration: none;
 }
 
 nav a:hover {
-    color: #a68f6b;
+    color: #9B7B44;
 }
 
+
 header h1 {
-    font-family: "Poppins", sans-serif;
+    font-family: 'Prata', serif;
     font-size: 26px;
     font-weight: 600;
-    color: #e8e6e2;
+    color: #26221D;
     text-align: center;
+    margin: 15px;
 }
 
 header h2 {
-    font-family: "Inter", sans-serif;
+    font-family: 'Prata', serif;
     font-size: 15px;
     font-weight: 500;
-    color: #8f8d92;
+    color: #7C6F5C;
 }
 
 #welcomeTitle {
-    font-family: "Poppins", sans-serif;
+    font-family: 'Prata', serif;
     font-size: 40px;
     font-weight: 600;
-    color: #e8e6e2;
+    color: #26221D;
     line-height: 1;
 }
 
 #subTitle {
-    font-family: "Inter", sans-serif;
+    font-family: 'Prata', serif;
     font-size: 14px;
-    color: #8f8d92;
+    color: #7C6F5C;
     margin-top: -6px;
 }
 
@@ -90,56 +91,65 @@ main {
 }
 
 main section {
-    background-color: #1b1b1e;
-    border: 1px solid #29292d;
+    background-color: #F7F3EC;
+    border: 1px solid #D2C7B3;
     border-radius: 10px;
     padding: 20px 24px;
     width: 100%;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 12px;
+    
+}
+#carInfo {
+    width: 100%;
+    max-width: 400px;
+    align-items: flex-start;
+    gap: 6px;
 }
 
 main h2 {
-    font-family: "Poppins", sans-serif;
+    font-family: 'Prata', serif;
     font-size: 18px;
     font-weight: 600;
-    color: #e8e6e2;
+    color: #26221D;
 }
 
 main p {
-    font-family: "Inter", sans-serif;
-    font-size: 14px;
-    color: #e8e6e2;
+    font-family: 'Prata', serif;
+    font-size: 20px;
+    color: #26221D;
+    line-height: 1.5;
 }
 
 main a {
-    font-family: "Poppins", sans-serif;
-    font-size: 13px;
-    color: #a68f6b;
+    font-family: 'Prata', serif;
+    font-size: 16px;
+    color: #9B7B44;
     text-decoration: none;
 }
 
 main a:hover {
-    color: #bda67f;
+    color: #26221D;
 }
 
 main button {
     padding: 10px 20px;
     background-color: transparent;
-    border: 1px solid #29292d;
+    border: 1px solid #D2C7B3;
     border-radius: 6px;
-    font-family: "Poppins", sans-serif;
-    font-size: 13px;
-    color: #8f8d92;
+    font-family: 'Prata', serif;
+    font-size: 16px;
+    color: #7C6F5C;
     cursor: pointer;
     transition: all .2s;
 }
 
 main button:hover {
-    border-color: #a68f6b;
-    color: #a68f6b;
+    border-color: #9B7B44;
+    color: #9B7B44;
 }
 
 main section img {
@@ -155,19 +165,19 @@ main table {
 
 main th,
 main td {
-    font-family: "Inter", sans-serif;
+    font-family: 'Prata', serif;
     font-size: 13px;
-    color: #e8e6e2;
+    color: #26221D;
     padding: 10px 12px;
-    border: 1px solid #29292d;
+    border: 1px solid #D2C7B3;
     text-align: center;
 }
 
 main th {
-    font-family: "Poppins", sans-serif;
+    font-family: 'Prata', serif;
     font-weight: 600;
-    color: #a68f6b;
-    background-color: #121214;
+    color: #9B7B44;
+    background-color: #EAE3D5;
 }
 
 .cars {
@@ -184,8 +194,8 @@ main th {
     width: 100%;
     max-width: 250px;
     padding: 14px 12px;
-    background-color: #121214;
-    border: 1px solid #29292d;
+    background-color: #EAE3D5;
+    border: 1px solid #D2C7B3;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -195,8 +205,8 @@ main th {
 }
 
 .carCard:hover {
-    border-color: #a68f6b;
-    background-color: #a68f6b18;
+    border-color: #9B7B44;
+    background-color: #9B7B4418;
 }
 
 .carImage {
@@ -208,17 +218,17 @@ main th {
 }
 
 .carModel {
-    font-family: "Poppins", sans-serif;
+    font-family: 'Prata', serif;
     font-size: 14px;
     font-weight: 600;
-    color: #e8e6e2;
+    color: #26221D;
     text-align: center;
 }
 
 .carDealer {
-    font-family: "Inter", sans-serif;
+    font-family: 'Prata', serif;
     font-size: 12px;
-    color: #8f8d92;
+    color: #7C6F5C;
     text-align: center;
 }
 
@@ -226,11 +236,11 @@ main th {
     width: 100%;
     padding: 8px 0;
     background-color: transparent;
-    border: 1px solid #29292d;
+    border: 1px solid #D2C7B3;
     border-radius: 8px;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Prata', serif;
     font-size: 12px;
-    color: #8f8d92;
+    color: #7C6F5C;
     text-decoration: none;
     text-align: center;
     cursor: pointer;
@@ -238,8 +248,8 @@ main th {
 }
 
 .carDetails:hover {
-    border-color: #a68f6b;
-    color: #a68f6b;
+    border-color: #9B7B44;
+    color: #9B7B44;
 }
 
 .sign form {
@@ -251,18 +261,18 @@ main th {
 }
 
 .sign label {
-    font-family: "Poppins", sans-serif;
-    font-size: 13px;
-    color: #8f8d92;
+    font-family: 'Prata', serif;
+    font-size: 16px;
+    color: #7C6F5C;
 }
 
 .sign input,
 .sign select {
-    font-family: "Inter", sans-serif;
+    font-family: 'Prata', serif;
     font-size: 14px;
-    color: #e8e6e2;
-    background-color: #121214;
-    border: 1px solid #29292d;
+    color: #26221D;
+    background-color: #EAE3D5;
+    border: 1px solid #D2C7B3;
     border-radius: 6px;
     padding: 10px 12px;
     outline: none;
@@ -270,7 +280,7 @@ main th {
 
 .sign input:focus,
 .sign select:focus {
-    border-color: #a68f6b;
+    border-color: #9B7B44;
 }
 
 .sign img {
@@ -283,19 +293,19 @@ main th {
 .sign button {
     margin-top: 6px;
     padding: 10px 0;
-    background-color: #a68f6b;
+    background-color: #9B7B44;
     border: none;
     border-radius: 6px;
-    font-family: "Poppins", sans-serif;
-    font-size: 14px;
+    font-family: 'Prata', serif;
+    font-size: 16px;
     font-weight: 600;
-    color: #121214;
+    color: #F7F3EC;
     cursor: pointer;
     transition: all .2s;
 }
 
 .sign button:hover {
-    background-color: #bda67f;
+    background-color: #84693A;
 }
 
 .star {
@@ -304,16 +314,17 @@ main th {
 }
 
 .star:hover {
-    color: gold;
+    color: #9B7B44;
 }
 
 .active {
-    color: gold;
+    color: #9B7B44;
 }
 
 #ratingIcon {
     text-align: center;
 }
+
 
 @media (max-width: 768px) {
     nav {
