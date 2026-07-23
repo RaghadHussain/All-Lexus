@@ -18,9 +18,12 @@
     <main>
         <section>
             <% for(let item of wishlist){ %>
-                <p>Lexus
+                <p>Lexus <%= item.car.model %>
                 </p>
                 <form action="/wishlist/<%= item._id %>?_method=delete" method="post">
+               <a href="/lexusCar/<%= item.car._id %>">Lexus Details</a>
+               <br>
+               <br>
                     <button>Remove</button>
                 </form>
                 <% } %>

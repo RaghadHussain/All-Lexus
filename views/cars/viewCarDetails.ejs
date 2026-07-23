@@ -21,7 +21,7 @@
         <section>
             <img src="/uploads/<%= car.carImage %>" alt="<%= car.model %>">
             <section id="carInfo">
-                <p>Car Condition:  <%= car.condition %>
+            <p>Car Condition:  <%= car.condition %>
             </p>
             <p>Car Type:    <%= car.type %>
             </p>
@@ -51,13 +51,13 @@
             </section>
             <% } %>
 
+            <% if (user && !user.isdealer ) { %>
             <section>
-               <% if (user && !user.isdealer ) { %>
             <form action="/wishlist/<%= car._id %>" method="post">
                 <button>Add to Wishlist</button>
             </form>
+        </section>
         <% } %> 
-            </section>
         
 
         <% if (user && !user.isdealer ) { %>
