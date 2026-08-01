@@ -19,8 +19,8 @@ All Lexus is a full-stack marketplace built for Lexus fans they can browse new a
 4. Node.js / Express
 5. MongoDB / Mongoose
 6. EJS
-7. bcrypt — password hashing
-8. Multer — image uploads
+7. bcrypt (password hashing)
+8. Multer (image uploads)
 
 
 ## Getting Started
