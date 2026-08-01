@@ -28,9 +28,6 @@ All Lexus is a full-stack marketplace built for Lexus fans they can browse new a
 [Deployed App](https://all-lexus.onrender.com/)
 
 ## Installation
-
-Want to run it locally? Here's how:
-
 1. Clone the Repository:
 :
    ```
