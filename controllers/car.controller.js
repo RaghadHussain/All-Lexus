@@ -39,7 +39,7 @@ router.post('/new', isSignedIn, upload.single('carImage'), async (request, respo
 router.get('/:id', async (request, response) => {
     try {
         const foundedCar = await car.findById(request.params.id).populate('dealer')
-        const foundedReviews = await review.find().populate('user')
+        const foundedReviews = await review.find({ car: request.params.id }).populate('user')
         // console.log(foundedCar)
         // console.log(foundedReviews)
         response.render('cars/viewCarDetails.ejs', { car: foundedCar, review: foundedReviews,  user: request.session.user })
