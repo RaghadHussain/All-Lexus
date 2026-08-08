@@ -28,8 +28,8 @@ All Lexus is a full-stack marketplace built for Lexus fans they can browse new a
 [Deployed App](https://all-lexus.onrender.com/)
 
 ## Installation
+
 1. Clone the Repository:
-:
    ```
    git clone https://github.com/RaghadHussain/All-Lexus.git
 
